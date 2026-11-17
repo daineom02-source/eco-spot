@@ -2,7 +2,7 @@ name: 대기질 자동 갱신
 
 on:
   schedule:
-    - cron: "17 * * * *"   # 매시 17분 (측정값이 정각 이후 올라오므로 조금 늦게)
+    - cron: "17 * * * *"   # 매시 17분
   workflow_dispatch:        # Actions 탭에서 직접 실행 가능
 
 permissions:
@@ -20,9 +20,13 @@ jobs:
         env:
           AIRKOREA_KEY: ${{ secrets.AIRKOREA_KEY }}
         run: python scripts/fetch_air.py
+      - name: 기상청 단기예보 받기
+        env:
+          AIRKOREA_KEY: ${{ secrets.AIRKOREA_KEY }}
+        run: python scripts/fetch_weather.py
       - name: 바뀐 값 저장
         run: |
           git config user.name "eco-spot-bot"
           git config user.email "eco-spot-bot@users.noreply.github.com"
-          git add data/air.json
-          git diff --staged --quiet || (git commit -m "대기질 갱신" && git push)
+          git add data/air.json data/weather.json
+          git diff --staged --quiet || (git commit -m "대기질·날씨 갱신" && git push)
