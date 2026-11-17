@@ -14,15 +14,16 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 /* Layout: one phone-width app column on white. Sky-blue accent; the tinted strip on each card names the environmental plant next door. */
 :root{
   --paper:#FFFFFF; --surface:#FFFFFF; --soft:#EFF7FD; --ink:#0F2A3D; --muted:#5B7083; --line:#DCE8F1;
   --accent:#1590DB; --accent-ink:#FFFFFF; --signal:#E3F2FC; --signal-ink:#0B6AA8; --live:#DDF5C6; --live-ink:#2F6A0E;
   --good:#2F6FD1; --normal:#2E9A57; --bad:#E07A19; --worst:#D2433B; --na:#8C9894;
-  --font-display:"Black Han Sans","IBM Plex Sans KR",sans-serif;
-  --font-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-display:"Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-body:"Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
@@ -40,7 +41,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
 body{-webkit-text-size-adjust:100%}
 a{color:var(--accent)}
 button{font:inherit;color:inherit}
@@ -84,7 +85,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 /* Sections */
 section{margin-top:30px}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px}
-.sec-head h2{font-size:20px;font-weight:700}
+.sec-head h2{font-size:20px;font-weight:800;letter-spacing:-.02em}
 .sec-head span{font-size:13px;color:var(--muted)}
 
 /* Facility plate */
@@ -95,7 +96,7 @@ section{margin-top:30px}
 .plate-body{padding:12px;display:grid;gap:8px}
 .plate-title{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .plate-title h3{font-size:17px;font-weight:700;line-height:1.35}
-.fee{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.15}
+.fee{font-family:var(--font-display);font-weight:800;font-size:22px;line-height:1.2;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .fee.free{color:var(--accent)}
 .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
 
@@ -119,7 +120,7 @@ section{margin-top:30px}
 /* Schedule */
 .sched{display:grid;gap:10px}
 .ev{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
-.dday{font-family:var(--font-display);font-size:22px;text-align:center;color:var(--accent)}
+.dday{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-.02em;text-align:center;color:var(--accent)}
 .dday.soon{color:var(--bad)}
 .ev b{display:block;font-size:15px}
 .ev small{color:var(--muted);font-size:13px}
@@ -145,6 +146,22 @@ dialog::backdrop{background:rgba(8,20,18,.45)}
 .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .btn{display:block;text-align:center;text-decoration:none;font-weight:700;border-radius:12px;padding:12px;border:1.5px solid var(--accent);color:var(--accent);background:transparent}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
+.near{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.near-btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--accent);color:var(--accent);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700;cursor:pointer}
+.near-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.near-btn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.loc-msg{font-size:12px;color:var(--muted)}
+.dist{margin-left:auto;font-weight:700;color:var(--ink)}
+.siteinfo{margin-top:16px;background:var(--soft);border-radius:12px;padding:14px;display:grid;gap:6px;font-size:14px}
+.siteinfo h4{margin:0;font-size:16px}
+.siteinfo p{margin:0}
+.si-eyebrow{font-size:12px;font-weight:700;color:var(--accent)}
+.si-note{font-size:12px;color:var(--muted)}
+.siteinfo a{font-size:13px;font-weight:700}
+.report{margin-top:8px}
+.report label{display:block;font-size:13px;font-weight:600;margin:8px 0 4px}
+.report select,.report textarea{width:100%;font:inherit;font-size:14px;padding:8px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.report .btn{margin-top:10px}
 .more{margin-top:16px;display:grid;gap:8px}
 .more h4{margin:0 0 2px;font-size:15px}
 details{border:1px solid var(--line);border-radius:12px;background:var(--soft)}
@@ -161,7 +178,7 @@ details[open] summary::after{content:"−"}
 .appbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .appbar-in{max-width:560px;margin:0 auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .appbar .brand{font-size:18px;color:var(--ink);letter-spacing:0}
-.appbar .brand b{font-family:var(--font-display);font-weight:400;font-size:20px}
+.appbar .brand b{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.03em}
 .appbar-sub{font-size:12px;color:var(--muted)}
 .wrap{padding-top:16px;padding-bottom:96px}
 .view section:first-child{margin-top:0}
@@ -224,6 +241,10 @@ footer{margin-top:36px;font-size:12px;color:var(--muted);display:grid;gap:4px}
     <label class="search" for="q"><span class="sr">시설 검색</span>
       <input id="q" type="search" placeholder="종목이나 지역으로 검색 (예: 테니스, 청라)" autocomplete="off">
     </label>
+    <div class="near">
+      <button type="button" class="near-btn" id="nearBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-6-6-11a6 6 0 0112 0c0 5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg>내 위치에서 가까운 순</button>
+      <span class="loc-msg" id="locMsg" aria-live="polite"></span>
+    </div>
     <div class="filters">
       <div class="chips" role="group" aria-label="조건" id="chipsCond"></div>
       <div class="chips" role="group" aria-label="지역" id="chipsArea"></div>
@@ -383,6 +404,24 @@ const SITES = {
   "송산지소":   {label:"송산지소", kind:"환경기초시설 (운북사업소)", area:"영종"}
 };
 const siteKey = f => f["지소"] || f["사업소"];
+const KIND_INFO = {
+  "소각":"생활쓰레기를 태워 부피를 줄이는 시설이에요. 태울 때 나오는 열은 시설 운영과 주민편익시설 등에 다시 쓰여요.",
+  "하수":"가정과 공장에서 나온 하수를 깨끗하게 처리해 하천과 바다로 내보내는 시설이에요. 부지 안에 체육시설을 만들어 주민에게 개방하고 있어요.",
+  "기타":"인천환경공단이 운영하는 환경기초시설이에요. 부지 안의 체육시설을 주민에게 개방하고 있어요."
+};
+const SITE_INFO = {
+  "청라사업소":{name:"청라 소각시설", kind:"소각"},
+  "가좌사업소":{name:"가좌 하수처리장", kind:"하수"},
+  "공촌사업소":{name:"공촌 하수처리장", kind:"하수"},
+  "운북사업소":{name:"운북 하수처리장", kind:"하수"},
+  "송도사업소":{name:"송도 자원환경센터", kind:"소각", extra:"생활폐기물 연 14만 톤, 음식물류폐기물 연 4만 톤을 처리해요 (2024년 인천시 발표). 수영장·헬스장 등 실내시설과 캠핑장이 같은 부지에 있어요."},
+  "송도지소":{name:"승기사업소 송도지소", kind:"기타", check:true},
+  "송산지소":{name:"운북사업소 송산지소", kind:"기타", check:true}
+};
+function siteInfoHtml(f){
+  const k=siteKey(f), i=SITE_INFO[k]; if(!i) return "";
+  return `<div class="siteinfo"><p class="si-eyebrow">이 시설은 어떤 곳 옆에 있나요?</p><h4>${i.name}</h4><p>${KIND_INFO[i.kind]}</p>${i.extra?`<p>${i.extra}</p>`:""}${i.check?`<p class="si-note">시설 성격은 공단에 확인 중이에요.</p>`:""}<a href="https://www.eco-i.or.kr/" target="_blank" rel="noopener">인천환경공단 사업소 소개 보기</a></div>`;
+}
 
 // Opening rules. wk = Tue-Sat (and Mon unless closed), sun = Sunday/holiday. Times are [h,m,h,m].
 const RULES = {
@@ -417,19 +456,33 @@ function seoulNow(){
   const p = new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23",weekday:"short"}).formatToParts(new Date());
   const g = t => p.find(x=>x.type===t).value;
   const wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[g("weekday")];
-  return {y:+g("year"), mo:+g("month"), d:+g("day"), h:+g("hour"), mi:+g("minute"), dow:wd};
+  const y=+g("year"), mo=+g("month"), d=+g("day");
+  const hol = HOLIDAYS[`${y}-${pad(mo)}-${pad(d)}`] || null;
+  return {y, mo, d, h:+g("hour"), mi:+g("minute"), dow:wd, hol};
 }
+// 관공서 공휴일 (대체공휴일 포함). 2027년은 정부 발표로 최종 확인 필요.
+const HOLIDAYS = {
+  "2026-12-25":"성탄절",
+  "2027-01-01":"신정",
+  "2027-02-06":"설날 연휴","2027-02-07":"설날","2027-02-08":"설날 연휴","2027-02-09":"대체공휴일",
+  "2027-03-01":"삼일절","2027-05-05":"어린이날","2027-05-13":"부처님오신날","2027-06-06":"현충일",
+  "2027-08-15":"광복절","2027-08-16":"대체공휴일",
+  "2027-09-14":"추석 연휴","2027-09-15":"추석","2027-09-16":"추석 연휴",
+  "2027-10-03":"개천절","2027-10-04":"대체공휴일","2027-10-09":"한글날","2027-10-11":"대체공휴일",
+  "2027-12-25":"성탄절","2027-12-27":"대체공휴일"
+};
 const pad = n => String(n).padStart(2,"0");
 const hm = (h,m) => `${h}:${pad(m)}`;
 
 function status(f, now){
-  const r = ruleFor(f), t = now.h*60+now.mi;
+  const r = ruleFor(f), t = now.h*60+now.mi, dow = now.hol ? 0 : now.dow;
   if(r.season && r.season.includes(now.mo)) return {k:"off", t:"동절기 휴장", sub:"11~3월은 운영하지 않아요"};
   if(r.closed && r.closed.includes(now.dow)) return {k:"off", t:"오늘 휴무", sub:"월요일 정기휴무"};
-  if(r.days && !r.days.includes(now.dow)) return {k:"off", t:"주말에만 운영", sub:"토·일 예약제"};
-  const slots = now.dow===0 ? r.sun : r.wk;
+  if(r.days && !r.days.includes(dow)) return {k:"off", t:"주말에만 운영", sub:"토·일 예약제"};
+  const slots = dow===0 ? r.sun : r.wk;
+  const holTxt = now.hol ? ` · ${now.hol} 시간표` : "";
   if(!slots) return {k:"resv", t:"예약제", sub:f["접수방식"]};
-  for(const [a,b,c,d] of slots){ if(t>=a*60+b && t<c*60+d) return r.resv ? {k:"resv", t:"운영 중 · 예약 필요", sub:`${hm(c,d)}까지`} : {k:"open", t:"지금 이용 가능", sub:`${hm(c,d)}까지`}; }
+  for(const [a,b,c,d] of slots){ if(t>=a*60+b && t<c*60+d) return r.resv ? {k:"resv", t:"운영 중 · 예약 필요", sub:`${hm(c,d)}까지${holTxt}`} : {k:"open", t:"지금 이용 가능", sub:`${hm(c,d)}까지${holTxt}`}; }
   const next = slots.find(([a,b])=>t<a*60+b);
   if(next) return {k:"off", t: t < slots[0][0]*60+slots[0][1] ? "운영 전" : "정비 시간", sub:`${hm(next[0],next[1])}부터`};
   return {k:"off", t:"오늘 운영 종료", sub:"내일 다시 열어요"};
@@ -466,13 +519,30 @@ function plate(f, now){
     <div class="plate-body">
       <div class="plate-title"><h3>${f["종목"]}</h3><span class="st ${st.k}">${st.t}</span></div>
       <div class="fee ${isFree(f)?"free":""}">${fee}</div>
-      <div class="meta"><span class="pill g${air.g}"><span class="dot"></span>${air.name} ${GRADE_TXT[air.g]}</span><span>${f["실내외"]}</span><span>·</span><span>${st.sub||""}</span></div>
+      <div class="meta"><span class="pill g${air.g}"><span class="dot"></span>${air.name} ${GRADE_TXT[air.g]}</span><span>${f["실내외"]}</span><span>·</span><span>${st.sub||""}</span>${myPos?`<span class="dist num">${fmtKm(distOf(f))}</span>`:""}</div>
     </div>`;
   btn.addEventListener("click", ()=>openSheet(f));
   return btn;
 }
 
 let condFilter="all", areaFilter="all", siteFilter=null, kw="", catRe=null, catLabel="";
+let myPos=null, sortNear=false;
+function km(a,b,c,d){ const R=6371, p=Math.PI/180; const x=Math.sin((c-a)*p/2)**2+Math.cos(a*p)*Math.cos(c*p)*Math.sin((d-b)*p/2)**2; return 2*R*Math.asin(Math.sqrt(x)); }
+const distOf = f => myPos ? km(myPos.lat,myPos.lng,+f["위도"],+f["경도"]) : null;
+const fmtKm = d => d<1 ? `${Math.round(d*1000)}m` : `${d.toFixed(1)}km`;
+function locate(){
+  const msg=document.getElementById("locMsg"), btn=document.getElementById("nearBtn");
+  if(sortNear){ sortNear=false; btn.setAttribute("aria-pressed","false"); msg.textContent=""; renderList(); return; }
+  if(!("geolocation" in navigator)){ msg.textContent="이 기기에서는 위치를 확인할 수 없어요."; return; }
+  msg.textContent="위치를 확인하는 중이에요…";
+  navigator.geolocation.getCurrentPosition(p=>{
+    myPos={lat:p.coords.latitude,lng:p.coords.longitude}; sortNear=true;
+    btn.setAttribute("aria-pressed","true"); msg.textContent="가까운 순으로 정렬했어요. 다시 누르면 기본 순서로 돌아가요.";
+    renderList(); renderNow();
+  }, e=>{
+    msg.textContent = e.code===1 ? "위치 권한이 꺼져 있어요. 브라우저 설정에서 위치를 허용한 뒤 다시 눌러 주세요." : "위치를 확인하지 못했어요. 잠시 뒤 다시 눌러 주세요.";
+  }, {enableHighAccuracy:false, timeout:10000, maximumAge:300000});
+}
 const CONDS=[["all","전체"],["now","지금 바로 이용"],["free","무료"],["실내","실내"],["실외","실외"]];
 const AREAS=[["all","전 지역"],["청라·서구","청라·서구"],["송도·연수","송도·연수"],["영종","영종"]];
 function chips(el, items, get, set){
@@ -498,6 +568,7 @@ function renderList(){
     if((condFilter==="실내"||condFilter==="실외") && f["실내외"]!==condFilter) return false;
     return true;
   });
+  if(sortNear && myPos) rows.sort((a,b)=>distOf(a)-distOf(b));
   const list=document.getElementById("list"); list.innerHTML="";
   rows.forEach(f=>list.appendChild(plate(f,now)));
   document.getElementById("count").textContent = siteFilter ? `${SITES[siteFilter].label} ${rows.length}곳` : catRe ? `${catLabel} ${rows.length}곳` : `${rows.length}곳`;
@@ -506,7 +577,7 @@ function renderList(){
 
 function renderNow(){
   const now=seoulNow(), days="일월화수목금토";
-  document.getElementById("nowTime").textContent = `${now.mo}월 ${now.d}일 (${days[now.dow]}) ${pad(now.h)}:${pad(now.mi)}`;
+  document.getElementById("nowTime").textContent = `${now.mo}월 ${now.d}일 (${days[now.dow]}${now.hol?` · ${now.hol}`:""}) ${pad(now.h)}:${pad(now.mi)}`;
   document.getElementById("airSrc").textContent = `대기질 ${AIR.time} 측정 · 에어코리아`;
   const areas=[["청라","청라"],["송도","송도"],["영종","영종"]];
   const box=document.getElementById("areas"); box.innerHTML="";
@@ -528,13 +599,14 @@ function renderNow(){
     if(f["실내외"]===(goodAir?"실외":"실내")) sc+=1;
     if(isFree(f)) sc+=.5;
     if(a.g>=3 && f["실내외"]==="실외") sc-=2;
+    if(myPos){ const d=distOf(f); sc += d<3?1: d<10?.5:0; }
     return {f,sc};
   }).sort((x,y)=>y.sc-x.sc);
   const seen=new Set(), picks=[];
   for(const {f} of scored){ const k=f["종목"]; if(seen.has(k)) continue; seen.add(k); picks.push(f); if(picks.length===3) break; }
   const rec=document.getElementById("rec"); rec.innerHTML="";
   picks.forEach(f=>rec.appendChild(plate(f,now)));
-  document.getElementById("recWhy").textContent = goodAir ? "운영 중 · 야외 우선" : "운영 중 · 실내 우선";
+  document.getElementById("recWhy").textContent = (goodAir ? "운영 중 · 야외 우선" : "운영 중 · 실내 우선") + (myPos?" · 가까운 곳 우선":"");
 }
 
 function renderMap(){
@@ -543,7 +615,7 @@ function renderMap(){
   const X=lng=>((lng-B.lng0)/(B.lng1-B.lng0))*W, Y=lat=>H-((lat-B.lat0)/(B.lat1-B.lat0))*H;
   let s=`<rect class="sea" x="0" y="0" width="${W}" height="${H}" rx="10"/>`;
   for(let i=1;i<6;i++) s+=`<line class="grid" x1="${i*W/6}" y1="0" x2="${i*W/6}" y2="${H}"/><line class="grid" x1="0" y1="${i*H/5}" x2="${W}" y2="${i*H/5}"/>`;
-  const labels=[["영종도",37.47,126.47],["청라",37.575,126.635],["서구",37.505,126.69],["송도",37.40,126.625],["인천항",37.455,126.59]];
+  const labels=[["영종도",37.445,126.50],["청라",37.585,126.585],["서구",37.505,126.69],["송도",37.40,126.625],["인천항",37.455,126.59]];
   for(const [t,la,ln] of labels) s+=`<text class="area-label" x="${X(ln)}" y="${Y(la)}" text-anchor="middle">${t}</text>`;
   for(const st of STATIONS){ const a=AIR.items[st.name]; const g=a?gradeOf(a.pm10,a.pm25):0;
     if(st.lat<B.lat0||st.lat>B.lat1||st.lng<B.lng0||st.lng>B.lng1) continue;
@@ -552,11 +624,12 @@ function renderMap(){
   FAC.forEach(f=>{ const k=siteKey(f); (sites[k]=sites[k]||{f, n:0}).n++; });
   for(const [k,{f,n}] of Object.entries(sites)){
     const x=X(+f["경도"]), y=Y(+f["위도"]), g=airFor(f).g, col=["na","good","normal","bad","worst"][g];
-    const anchor = x>W-90 ? "end" : "start", dx = anchor==="end"?-12:12;
+    const LP={"공촌사업소":{a:"end",dy:-6},"청라사업소":{a:"start",dy:14}};
+    const anchor = LP[k]?LP[k].a : (x>W-90 ? "end" : "start"), dx = anchor==="end"?-12:12, dy = LP[k]?LP[k].dy:4;
     s+=`<g class="site" tabindex="0" role="button" data-site="${k}" aria-label="${SITES[k].label} ${n}곳 보기">
       <circle cx="${x}" cy="${y}" r="9" fill="var(--surface)" stroke="var(--${col})" stroke-width="3"/>
       <circle cx="${x}" cy="${y}" r="4" fill="var(--accent)"/>
-      <text class="site-label" x="${x+dx}" y="${y+4}" text-anchor="${anchor}">${SITES[k].label} ${n}</text></g>`;
+      <text class="site-label" x="${x+dx}" y="${y+dy}" text-anchor="${anchor}">${SITES[k].label} ${n}</text></g>`;
   }
   svg.innerHTML=s;
   svg.querySelectorAll(".site").forEach(g=>{
@@ -637,9 +710,25 @@ function openSheet(f){
       <div class="row"><dt>문의</dt><dd><a href="tel:${f["전화번호"].replace(/[^0-9]/g,"")}">${f["전화번호"]}</a></dd></div>
     </dl>
     <div class="actions"><a class="btn primary" href="${f["예약페이지"]}" target="_blank" rel="noopener">예약 페이지</a><a class="btn" href="${map}" target="_blank" rel="noopener">네이버 지도</a></div>
+    ${siteInfoHtml(f)}
     ${moreHtml(f)}
+    <details class="report"><summary>정보가 달라요? 알려주기</summary><div class="dbody">
+      <label for="rpType">무엇이 다른가요?</label>
+      <select id="rpType"><option>요금이 달라요</option><option>운영시간·휴무일이 달라요</option><option>시설이 없어졌거나 새로 생겼어요</option><option>예약 방법이 달라요</option><option>기타</option></select>
+      <label for="rpText">자세한 내용 (선택)</label>
+      <textarea id="rpText" rows="3" placeholder="예: 12월부터 성인 요금이 3,500원으로 올랐어요"></textarea>
+      <a class="btn primary" id="rpSend" target="_blank" rel="noopener">제보 보내기</a>
+      <p class="dnote">GitHub 제보 페이지가 열려요 (로그인 필요). 받은 제보는 확인 후 데이터에 반영해요.</p>
+    </div></details>
     <p class="note">확인 출처: ${f["확인출처"]}. 요금과 규정은 바뀔 수 있으니 이용 전에 공식 페이지를 확인하세요.</p>`;
   const d=document.getElementById("sheet");
+  const rpUpd=()=>{
+    const type=document.getElementById("rpType").value, txt=document.getElementById("rpText").value.trim();
+    const title=`[정보 제보] ${f["시설명"]} - ${type}`;
+    const body=`시설: ${f["시설명"]}\n제보 유형: ${type}\n내용: ${txt||"(없음)"}\n현재 앱 정보: ${f["요금"]} / ${f["운영일정"]||"-"}\n확인 출처: ${f["확인출처"]}`;
+    document.getElementById("rpSend").href=`https://github.com/daineom02-source/eco-spot/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  };
+  document.getElementById("rpType").addEventListener("change",rpUpd); document.getElementById("rpText").addEventListener("input",rpUpd); rpUpd();
   document.getElementById("closeSheet").addEventListener("click",()=>d.close());
   d.showModal();
 }
@@ -664,10 +753,12 @@ function renderCats(){
     box.appendChild(b);
   }
 }
+document.getElementById("nearBtn").addEventListener("click",locate);
 document.getElementById("q").addEventListener("input",e=>{ kw=e.target.value.trim(); siteFilter=null; catRe=null; renderList(); });
 const TABS=["home","list","map","schedule"];
 function route(){
   const tab = TABS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
+  const sh=document.getElementById("sheet"); if(sh && sh.open) sh.close();
   for(const k of TABS){ document.getElementById("v-"+k).hidden = k!==tab; }
   document.querySelectorAll(".tabbar a").forEach(a=>{ if(a.dataset.tab===tab) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   window.scrollTo(0,0);
